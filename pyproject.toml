@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "message-forwarding-bot"
+version = "0.1.0"
+description = "Bot for telegram message forwarding"
+authors = ["Talziar <Ilyasovtim@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Telethon = "^1.34.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
