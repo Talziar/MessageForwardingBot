@@ -10,7 +10,7 @@ WORK_DIR = Path(__package__).absolute()
 PARENT_DIR = WORK_DIR.parent
 
 # Read bot config
-CONFIG = json.loads((PARENT_DIR.parent / "config.json").read_text())
+CONFIG = json.loads((PARENT_DIR / "config.json").read_text())
 API_KEY = CONFIG["api_key"]
 API_HASH = CONFIG["api_hash"]
 USER_ID = CONFIG["tg_user_id"]
