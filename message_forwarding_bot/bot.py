@@ -8,6 +8,7 @@ from pyrogram import Client, idle
 from message_forwarding_bot import API_HASH, API_KEY, USERNAME
 from message_forwarding_bot.modules import ALL_MODULES
 from message_forwarding_bot.utils.loader import load_modules
+from message_forwarding_bot.utils.telegram import tg_exceptions_handler
 
 LOGGER = logging.getLogger(__name__)
 BOT = Client(USERNAME, API_KEY, API_HASH)
@@ -18,6 +19,7 @@ def main() -> None:
     BOT.run(run())
 
 
+@tg_exceptions_handler
 async def run() -> None:
     async with BOT:
         bot_info = await BOT.get_me()
