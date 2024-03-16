@@ -13,6 +13,7 @@ PARENT_DIR = WORK_DIR.parent
 CONFIG = json.loads((PARENT_DIR / "config.json").read_text())
 API_KEY = CONFIG["api_key"]
 API_HASH = CONFIG["api_hash"]
+USERNAME = CONFIG["username"]
 USER_ID = CONFIG["tg_user_id"]
 
 
