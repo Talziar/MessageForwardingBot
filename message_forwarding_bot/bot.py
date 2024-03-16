@@ -7,12 +7,12 @@ from pathlib import Path
 
 from telethon.sync import TelegramClient
 
-from message_forwarding_bot import API_HASH, API_KEY
+from message_forwarding_bot import API_HASH, API_KEY, USERNAME
 from message_forwarding_bot.modules import ALL_MODULES
 from message_forwarding_bot.utils.loader import load_modules
 
 LOGGER = logging.getLogger(__name__)
-BOT = TelegramClient("message_forwarding_bot", API_KEY, API_HASH)
+BOT = TelegramClient(USERNAME, API_KEY, API_HASH)
 BOT.start()
 BOT.parse_mode = "markdown"
 BOT_INFO = {}
