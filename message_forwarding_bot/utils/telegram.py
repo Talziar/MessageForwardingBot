@@ -3,19 +3,17 @@ from collections.abc import Callable
 from functools import wraps
 from typing import Any, cast
 
-from telethon import events
-from telethon.errors import (
-    ChannelPrivateError,
-    ChatWriteForbiddenError,
-    FloodWaitError,
-    InputUserDeactivatedError,
-    InterdcCallErrorError,
-    MessageIdInvalidError,
-    MessageNotModifiedError,
-    SlowModeWaitError,
-    UserIsBlockedError,
+from pyrogram.errors import (
+    ChannelPrivate,
+    ChatWriteForbidden,
+    FloodWait,
+    InputUserDeactivated,
+    InterdcCallError,
+    MessageIdInvalid,
+    MessageNotModified,
+    UserIsBlocked,
+    SlowmodeWait
 )
-from telethon.tl.types import User
 
 
 def tg_exceptions_handler(func: Callable[..., Any]) -> Callable[..., Any]:
@@ -24,20 +22,20 @@ def tg_exceptions_handler(func: Callable[..., Any]) -> Callable[..., Any]:
         try:
             return cast(Callable[..., Any], await func(*args, **kwargs))
         except (
-            ChannelPrivateError,
-            ChatWriteForbiddenError,
-            UserIsBlockedError,
-            InterdcCallErrorError,
-            MessageNotModifiedError,
-            InputUserDeactivatedError,
-            MessageIdInvalidError,
+            ChannelPrivate,
+            ChatWriteForbidden,
+            UserIsBlocked,
+            InterdcCallError,
+            MessageNotModified,
+            InputUserDeactivated,
+            MessageIdInvalid,
         ):
             return lambda: None
-        except SlowModeWaitError as error:
-            await sleep(error.seconds)
+        except SlowmodeWait as error:
+            await sleep(error.value)
             return tg_exceptions_handler(await func(*args, **kwargs))
-        except FloodWaitError as error:
-            await sleep(error.seconds)
+        except FloodWait as error:
+            await sleep(error.value)
             return tg_exceptions_handler(await func(*args, **kwargs))
 
     return wrapper
