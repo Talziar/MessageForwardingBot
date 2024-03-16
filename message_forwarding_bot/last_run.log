@@ -1,7 +1,0 @@
-2024-03-15 01:53:59,415 [INFO] telethon.crypto.libssl [libssl.<module>:79]: Failed to load SSL library: <class 'OSError'> (no library called "ssl" found)
-2024-03-15 01:53:59,416 [INFO] telethon.crypto.aes [aes.<module>:25]: cryptg module not installed and libssl not found, falling back to (slower) Python encryption
-2024-03-15 01:53:59,827 [INFO] root [__init__.<module>:9]: Modules to load: [main]
-2024-03-15 01:53:59,830 [INFO] telethon.network.mtprotosender [mtprotosender._connect:228]: Connecting to 149.154.167.51:443/TcpFull...
-2024-03-15 01:53:59,874 [INFO] telethon.network.mtprotosender [mtprotosender._connect:279]: Connection to 149.154.167.51:443/TcpFull complete!
-2024-03-15 01:54:00,184 [INFO] message_forwarding_bot.bot [bot.run:33]: Bot started as Бот 11 «В»! Username is HomeTask10CBot and ID is 1066163670
-Bot started as Бот 11 «В»! Username is HomeTask10CBot and ID is 1066163670
