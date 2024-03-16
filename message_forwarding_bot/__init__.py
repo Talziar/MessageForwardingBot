@@ -19,7 +19,7 @@ USER_ID = CONFIG["tg_user_id"]
 
 # Logging
 LOG_FILE = PARENT_DIR / "last_run.log"
-LOG_FORMAT = "%(asctime)s [%(levelname)s] %(name)s [%(module)s.%(funcName)s:%(lineno)d]: %(message)s"
+LOG_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"
 FORMATTER: logging.Formatter = logging.Formatter(LOG_FORMAT)
 handler = TimedRotatingFileHandler(LOG_FILE, when="d", interval=1, backupCount=3)
 logging.basicConfig(filename=str(LOG_FILE), filemode="w", format=LOG_FORMAT)
